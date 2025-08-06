@@ -1,0 +1,138 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - control_light
+  - control_air_conditioner
+  - control_curtain
+  - control_tv
+  - control_music
+  - ask_weather
+  - ask_time
+  - ask_device_status
+
+entities:
+  - device_type
+  - location
+  - action
+  - value
+  - color
+  - temperature
+  - brightness
+
+slots:
+  device_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: device_type
+  
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: location
+  
+  action:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: action
+  
+  value:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: value
+  
+  color:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: color
+  
+  temperature:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: temperature
+  
+  brightness:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: brightness
+
+responses:
+  utter_greet:
+  - text: "你好！我是智能家居助手，可以帮你控制家里的设备。"
+  - text: "欢迎回家！有什么可以为你做的吗？"
+
+  utter_goodbye:
+  - text: "再见！"
+  - text: "祝你有美好的一天！"
+
+  utter_iamabot:
+  - text: "我是智能家居语音助手，专门帮助你控制家中的智能设备。"
+
+  utter_happy:
+  - text: "很高兴听到这个消息！"
+
+  utter_cheer_up:
+  - text: "希望你心情能好起来。要不要我为你播放一些轻松的音乐？"
+
+  utter_device_controlled:
+  - text: "好的，已经为你{action}{location}的{device_type}。"
+  - text: "设备控制完成！{location}的{device_type}已经{action}。"
+
+  utter_ask_location:
+  - text: "请问你想控制哪个房间的设备？"
+  - text: "你想在哪个位置控制设备呢？"
+
+  utter_ask_device:
+  - text: "请问你想控制什么设备？"
+  - text: "你想操作哪个设备呢？"
+
+  utter_ask_action:
+  - text: "你想对设备进行什么操作？"
+  - text: "请告诉我你想怎么控制这个设备？"
+
+  utter_device_not_found:
+  - text: "抱歉，我没有找到{location}的{device_type}。"
+  - text: "该位置似乎没有这个设备，请检查设备名称和位置。"
+
+  utter_default:
+  - text: "抱歉，我没有理解你的意思。你可以说'打开客厅灯'或'关闭空调'这样的指令。"
+  - text: "我还在学习中，请用简单的语句告诉我你想控制什么设备。"
+
+actions:
+  - action_control_device
+  - action_get_weather
+  - action_get_time
+  - action_get_device_status
+  - validate_device_control_form
+
+forms:
+  device_control_form:
+    required_slots:
+      - device_type
+      - location
+      - action
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+

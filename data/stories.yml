@@ -1,0 +1,148 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_goodbye
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - intent: affirm
+  - action: utter_happy
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: control light with complete info
+  steps:
+  - intent: control_light
+    entities:
+    - device_type: "灯"
+    - location: "客厅"
+    - action: "打开"
+  - action: action_control_device
+  - action: utter_device_controlled
+
+- story: control light missing location
+  steps:
+  - intent: control_light
+    entities:
+    - device_type: "灯"
+    - action: "打开"
+  - action: device_control_form
+  - active_loop: device_control_form
+  - slot_was_set:
+    - requested_slot: location
+  - action: utter_ask_location
+  - intent: control_light
+    entities:
+    - location: "客厅"
+  - action: device_control_form
+  - active_loop: null
+  - action: action_control_device
+  - action: utter_device_controlled
+
+- story: control air conditioner
+  steps:
+  - intent: control_air_conditioner
+    entities:
+    - device_type: "空调"
+    - location: "卧室"
+    - action: "打开"
+  - action: action_control_device
+  - action: utter_device_controlled
+
+- story: control curtain
+  steps:
+  - intent: control_curtain
+    entities:
+    - device_type: "窗帘"
+    - location: "客厅"
+    - action: "拉开"
+  - action: action_control_device
+  - action: utter_device_controlled
+
+- story: control tv
+  steps:
+  - intent: control_tv
+    entities:
+    - device_type: "电视"
+    - location: "客厅"
+    - action: "打开"
+  - action: action_control_device
+  - action: utter_device_controlled
+
+- story: ask weather
+  steps:
+  - intent: ask_weather
+  - action: action_get_weather
+
+- story: ask time
+  steps:
+  - intent: ask_time
+  - action: action_get_time
+
+- story: ask device status
+  steps:
+  - intent: ask_device_status
+    entities:
+    - device_type: "灯"
+    - location: "客厅"
+  - action: action_get_device_status
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: control_light
+    entities:
+    - device_type: "灯"
+    - location: "客厅"
+    - action: "打开"
+  - action: action_control_device
+  - action: utter_device_controlled
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: device control form happy path
+  steps:
+  - intent: control_light
+    entities:
+    - device_type: "灯"
+    - action: "打开"
+  - action: device_control_form
+  - active_loop: device_control_form
+  - slot_was_set:
+    - requested_slot: location
+  - action: utter_ask_location
+  - intent: control_light
+    entities:
+    - location: "客厅"
+  - action: device_control_form
+  - active_loop: null
+  - action: action_control_device
+  - action: utter_device_controlled
+

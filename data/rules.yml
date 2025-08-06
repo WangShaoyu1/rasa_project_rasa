@@ -1,0 +1,49 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Activate device control form
+  steps:
+  - intent: control_light
+  - action: device_control_form
+  - active_loop: device_control_form
+
+- rule: Submit device control form
+  condition:
+  - active_loop: device_control_form
+  steps:
+  - action: device_control_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_control_device
+  - action: utter_device_controlled
+
+- rule: Activate device control form for air conditioner
+  steps:
+  - intent: control_air_conditioner
+  - action: device_control_form
+  - active_loop: device_control_form
+
+- rule: Activate device control form for curtain
+  steps:
+  - intent: control_curtain
+  - action: device_control_form
+  - active_loop: device_control_form
+
+- rule: Activate device control form for tv
+  steps:
+  - intent: control_tv
+  - action: device_control_form
+  - active_loop: device_control_form
+

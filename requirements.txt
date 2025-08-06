@@ -1,0 +1,21 @@
+# RASA核心依赖
+rasa==3.6.20
+rasa-sdk==3.6.2
+
+# 中文支持
+jieba==0.42.1
+
+# HTTP请求
+requests==2.31.0
+
+# 数据处理
+pandas==2.0.3
+numpy==1.24.3
+
+# 日志
+coloredlogs==15.0.1
+
+# 开发工具
+pytest==7.4.0
+pytest-asyncio==0.21.1
+

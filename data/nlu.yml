@@ -1,0 +1,155 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - 你好
+    - 嗨
+    - 早上好
+    - 下午好
+    - 晚上好
+    - hello
+    - hi
+    - 在吗
+    - 小助手
+
+- intent: goodbye
+  examples: |
+    - 再见
+    - 拜拜
+    - 晚安
+    - 我走了
+    - goodbye
+    - bye
+    - 关闭助手
+
+- intent: affirm
+  examples: |
+    - 是的
+    - 对
+    - 正确
+    - 好的
+    - 可以
+    - 没问题
+    - yes
+    - 确认
+
+- intent: deny
+  examples: |
+    - 不
+    - 不是
+    - 错误
+    - 不对
+    - 不可以
+    - no
+    - 取消
+
+- intent: mood_great
+  examples: |
+    - 我很好
+    - 心情不错
+    - 感觉很棒
+    - 很开心
+    - 非常好
+
+- intent: mood_unhappy
+  examples: |
+    - 我不开心
+    - 心情不好
+    - 感觉糟糕
+    - 很难过
+    - 不太好
+
+- intent: bot_challenge
+  examples: |
+    - 你是谁
+    - 你是什么
+    - 你是机器人吗
+    - 你是人工智能吗
+    - 你是助手吗
+
+- intent: control_light
+  examples: |
+    - 打开[客厅](location)的[灯](device_type)
+    - [关闭](action)[卧室](location)[灯光](device_type)
+    - 把[厨房](location)的[灯](device_type)[开](action)一下
+    - [调亮](action)[书房](location)的[灯](device_type)
+    - [调暗](action)一点[客厅](location)的[灯](device_type)
+    - [客厅](location)[灯](device_type)太暗了
+    - [卧室](location)的[灯](device_type)太亮了
+    - 把[灯](device_type)[调](action)到[50%](brightness)
+    - [灯](device_type)[调](action)成[红色](color)
+    - [开](action)[灯](device_type)
+    - [关](action)[灯](device_type)
+    - [打开](action)[台灯](device_type)
+    - [关闭](action)[吊灯](device_type)
+
+- intent: control_air_conditioner
+  examples: |
+    - 打开[客厅](location)的[空调](device_type)
+    - [关闭](action)[卧室](location)的[空调](device_type)
+    - 把[空调](device_type)[温度](value)调到[26度](temperature)
+    - [空调](device_type)太冷了
+    - [空调](device_type)太热了
+    - [调高](action)[空调](device_type)[温度](value)
+    - [调低](action)[空调](device_type)[温度](value)
+    - [开](action)[空调](device_type)
+    - [关](action)[空调](device_type)
+    - [空调](device_type)[制冷](action)
+    - [空调](device_type)[制热](action)
+
+- intent: control_curtain
+  examples: |
+    - 打开[客厅](location)的[窗帘](device_type)
+    - [关闭](action)[卧室](location)的[窗帘](device_type)
+    - [拉开](action)[窗帘](device_type)
+    - [拉上](action)[窗帘](device_type)
+    - [窗帘](device_type)[开](action)一半
+    - 把[窗帘](device_type)[调](action)到[30%](value)
+
+- intent: control_tv
+  examples: |
+    - 打开[客厅](location)的[电视](device_type)
+    - [关闭](action)[卧室](location)的[电视](device_type)
+    - [电视](device_type)[换台](action)
+    - [电视](device_type)[调大](action)[声音](value)
+    - [电视](device_type)[调小](action)[音量](value)
+    - [开](action)[电视](device_type)
+    - [关](action)[电视](device_type)
+
+- intent: control_music
+  examples: |
+    - 播放音乐
+    - [停止](action)音乐
+    - [暂停](action)音乐
+    - [继续](action)播放
+    - [音量](value)[调大](action)
+    - [音量](value)[调小](action)
+    - 播放[轻音乐](value)
+    - 播放[流行音乐](value)
+
+- intent: ask_weather
+  examples: |
+    - 今天天气怎么样
+    - 天气如何
+    - 会下雨吗
+    - 温度多少
+    - 明天天气
+    - 查询天气
+
+- intent: ask_time
+  examples: |
+    - 现在几点了
+    - 时间
+    - 几点
+    - 现在时间
+    - 查看时间
+
+- intent: ask_device_status
+  examples: |
+    - [客厅](location)的[灯](device_type)开着吗
+    - [空调](device_type)状态
+    - 查看[设备](device_type)状态
+    - [电视](device_type)开着吗
+    - 所有设备状态
+

@@ -1,0 +1,38 @@
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/actions/#custom-actions/
+
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/tracker-stores/
+
+tracker_store:
+  type: InMemoryTrackerStore
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/event-brokers/
+
+#event_broker:
+#  type: pika
+#  url: localhost
+#  username: guest
+#  password: guest
+#  queue: rasa_core_events
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/lock-stores/
+
+lock_store:
+  type: InMemoryLockStore
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/nlg/
+
+#nlg:
+#  type: rasa.core.nlg.callback.CallbackNaturalLanguageGenerator
+#  url: http://localhost:5056/nlg
+
